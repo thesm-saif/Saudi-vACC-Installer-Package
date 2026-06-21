@@ -48,7 +48,7 @@ class LauncherApp:
         root.resizable(False, False)
         root.configure(fg_color=BG_DARK)
 
-        ico_path = os.path.join(APP_FOLDER, "app.ico")
+        ico_path = os.path.join(APP_FOLDER, "assets", "app.ico")
         try:
             root.iconbitmap(ico_path)
         except Exception:
@@ -56,7 +56,7 @@ class LauncherApp:
 
         try:
             from PIL import ImageTk
-            png_path = os.path.join(APP_FOLDER, "app.png")
+            png_path = os.path.join(APP_FOLDER, "assets", "app.png")
             ico_img = ImageTk.PhotoImage(Image.open(png_path).resize((32, 32)))
             root.iconphoto(True, ico_img)
             self._refs.append(ico_img)
@@ -81,7 +81,7 @@ class LauncherApp:
         left.place(relx=0.0, rely=0.5, anchor="w", x=24)
 
         try:
-            png_path = os.path.join(APP_FOLDER, "app.png")
+            png_path = os.path.join(APP_FOLDER, "assets", "app.png")
             logo_img = ctk.CTkImage(Image.open(png_path), size=(70, 70))
             ctk.CTkLabel(left, image=logo_img, text="").pack(side="left")
             self._refs.append(logo_img)
